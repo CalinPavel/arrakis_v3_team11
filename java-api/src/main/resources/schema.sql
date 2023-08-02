@@ -10,13 +10,14 @@ CREATE TABLE security (
     cusip VARCHAR(50),
     isin VARCHAR(50) NOT NULL ,
     bond_currency VARCHAR(10) NOT NULL,
-    bond_maturity_date DATE NOT NULL,
+    bond_maturity_date VARCHAR(50) NOT NULL,
     coupon_percent DOUBLE NOT NULL,
     unit_price DOUBLE NOT NULL,
     face_value INT NOT NULL,
-    issuer_name VARCHAR(100) NOT NULL,
-    type VARCHAR(50) NOT NULL,
-    status VARCHAR (50) NOT NULL
+    issuer_name varchar(100) NOT NULL,
+    type varchar(50) NOT NULL,
+    status varchar(50) NOT NULL
+
 );
 
 CREATE TABLE book (
@@ -40,9 +41,9 @@ CREATE TABLE trade (
     trade_type VARCHAR(10) NOT NULL,
     trade_currency VARCHAR(10) NOT NULL,
     quantity INT NOT NULL,
-    trade_settlement_date DATE NOT NULL,
+    trade_settlement_date varchar(50) NOT NULL,
     trade_status VARCHAR(10) NOT NULL,
-    trade_date DATE NOT NULL,
+    trade_date varchar(50) NOT NULL,
     security_id INT,
     FOREIGN KEY (security_id) REFERENCES security (security_id),
     book_id INT,
