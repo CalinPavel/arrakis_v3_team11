@@ -2,6 +2,8 @@ DROP TABLE IF EXISTS trade;
 DROP TABLE IF EXISTS security;
 DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS counter_party;
+DROP TABLE IF EXISTS app_user;
+
 
 CREATE TABLE security (
     security_id int auto_increment PRIMARY KEY,
