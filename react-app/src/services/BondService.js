@@ -5,3 +5,6 @@ export const getAllBonds = () => {
   const bonds = axios.get(`${hostNameUrl}/bonds`);
   return bonds;
 };
+
+
+

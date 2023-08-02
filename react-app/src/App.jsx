@@ -1,5 +1,6 @@
 import React from "react";
 import { Bond } from "./components/bonds/Bond";
+import { AllBonds } from "./components/bonds/AllBonds";
 
 const bondDataExample = {
   cusip: 'NULL',
@@ -23,7 +24,8 @@ const bondDataExample = {
 };
 
 const App = () => {
-  return <Bond bondData={bondDataExample}/>;
+  // return <Bond bondData={bondDataExample}/>;
+  return <AllBonds/>;
 };
 
 export default App;
