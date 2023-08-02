@@ -1,12 +1,12 @@
-﻿counter_party_id,bond_holder
-1,AZ Holdings Inc
-2,Acme Co
-3,Sovereign Investments
-4,Astra Trading Ltd
-5,Muncipal Gov Of Orange County
-6,Goldman Sachs
-7,UBS
-8,Barclays
-9,British Telecom
-10,Pension Holdings
-11,Zurich Pension fund 4
+﻿bond_holder
+AZ Holdings Inc
+Acme Co
+Sovereign Investments
+Astra Trading Ltd
+Muncipal Gov Of Orange County
+Goldman Sachs
+UBS
+Barclays
+British Telecom
+Pension Holdings
+Zurich Pension fund 4
