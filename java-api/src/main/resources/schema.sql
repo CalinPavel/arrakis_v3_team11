@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS counter_party;
 DROP TABLE IF EXISTS app_user;
 
+
 CREATE TABLE security (
     security_id int auto_increment PRIMARY KEY,
     cusip VARCHAR(50),
@@ -14,13 +15,13 @@ CREATE TABLE security (
     unit_price DOUBLE NOT NULL,
     face_value INT NOT NULL,
     issuer_name VARCHAR(100) NOT NULL,
-    type VARCHAR(50) NOT NULL
+    type VARCHAR(50) NOT NULL,
+    status VARCHAR (50) NOT NULL
 );
 
 CREATE TABLE book (
     book_id int auto_increment PRIMARY KEY,
-    book_name VARCHAR(50) NOT NULL,
-    status VARCHAR (50) NOT NULL
+    book_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE counter_party (
