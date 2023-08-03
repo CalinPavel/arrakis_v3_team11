@@ -81,19 +81,11 @@ INSERT INTO trade ( trade_type ,  trade_currency ,  quantity ,  trade_settlement
 INSERT INTO trade ( trade_type ,  trade_currency ,  quantity ,  trade_settlement_date ,  trade_status ,  trade_date ,  cusip ,  isin ) VALUES ('sell', 'USD', '300', '23/08/2021', 'open', '23/08/2015', '87973RAA8', 'US87973RAA86');
 
 
-
-
-
 update trade set book_id=1 where cusip ='' and isin ='XS1988387210';
-
 update trade set book_id=2 where cusip ='123456780' and isin ='USN0280EAR64';
-
 update trade set book_id=3 where cusip ='123456bh0' and isin ='A12356111';
-
 update trade set book_id=4 where cusip ='AMZN 3.15 08/22/27 REGS' and isin ='USU02320AG12';
-
 update trade set book_id=5 where cusip ='BDCHBW8' and isin ='GB00B6460505';
-
 update trade set book_id=6 where cusip ='87973RAA8' and isin ='US87973RAA86';
 
 
@@ -103,12 +95,15 @@ update trade set counter_party_id=3 where cusip ='123456bh0' and isin ='A1235611
 update trade set counter_party_id=4 where cusip ='AMZN 3.15 08/22/27 REGS' and isin ='USU02320AG12' and trade_date in ('04/02/2021','23/08/2021');
 update trade set counter_party_id=5 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('27/09/2021','28/09/2021');
 update trade set counter_party_id=6 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('29/09/2021','30/09/2021');
-
 update trade set counter_party_id=7 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('01/10/2021','02/10/2019','03/10/2019');
-
 update trade set counter_party_id=8 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('04/10/2018');
-
-update trade set counter_party_id=9 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('05/10/2019', '06/06/2021','07/10/2011');
+update trade set counter_party_id=9 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('05/10/2019', '06/06/2021','07/10/2021');
 update trade set counter_party_id=10 where cusip ='87973RAA8' and isin ='US87973RAA86' and trade_date in ('04/02/2012','23/08/2012','04/02/2013','23/08/2014','04/02/2016','23/08/2012','04/02/2013','23/08/2015');
 
-
+update trade set security_id=1 where cusip = '' and isin ='XS1988387210' and issuer_name ='BNPParibasIssu 4,37% Microsoft Corp (USD)';
+update trade set security_id=2 where cusip ='123456780' and isin ='USN0280EAR64' and issuer_name='Airbus 3.15%  USD';
+update trade set security_id=3 where cusip ='123456bh0' and isin ='A12356111' and issuer_name='UBS Facebook (USD)';
+update trade set security_id=4 where cusip ='AMZN 3.15 08/22/27 REGS' and isin ='USU02320AG12' and issuer_name='Amazon';
+update trade set security_id=5 where cusip ='BDCHBW8' and isin ='GB00B6460505' and issuer_name='HM Treasury United Kingdon';
+update trade set security_id=6 where cusip ='87973RAA8' and isin ='US87973RAA86' and issuer_name='TEMASEK FINL I LTD GLOBAL MEDIUM TERM NTS BOOK ENTRY REG S';
+update trade set security_id=7 where cusip ='87973RAA8' and isin ='IE00B29LNP31' and issuer_name='First Norway Alpha Kl.IV';
