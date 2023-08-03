@@ -5,6 +5,7 @@ import { getAuth} from 'firebase/auth';
 import { useState } from 'react';
 import { Form, Row } from 'react-bootstrap';
 import {auth} from '../config/firebase';
+import './Login.css';
 
 
 const Login = () => {
@@ -37,19 +38,19 @@ const Login = () => {
     <>
     <Row className='LoginForm'>
         <Form >
-            <Form.Group className="mb-3" controlId="username">
+            <Form.Group className="inputform" controlId="username">
                 <Form.Label>Username: </Form.Label>
                 <Form.Control placeholder="Username" onChange={(event)=>setEmail(event.target.value)}/>
             </Form.Group>
-                <Form.Group className="mb-3" controlId="password">
+            <Form.Group className="inpurform" controlId="password">
                 <Form.Label>Password: </Form.Label>
                 <Form.Control type="password" placeholder="Password" 
                 onChange={(event)=>setPassword(event.target.value)}/>
             </Form.Group>
-            <Button variant='Primary' onClick={handleRegister}> 
+            <Button className='RegisterButton' variant='Primary' onClick={handleRegister}> 
                 Register
             </Button>
-            <Button variant='Primary' onClick={handleLogin}> 
+            <Button className='LoginButton' variant='Primary' onClick={handleLogin}> 
                 Login
             </Button>
         </Form>      
