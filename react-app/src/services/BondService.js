@@ -12,6 +12,10 @@ export const getBondsFiveDayMaturity = () => {
   return null;
 }
 
+export const getUserBonds = (user) => {
+  return null;
+}
+
 
 
 // Example data

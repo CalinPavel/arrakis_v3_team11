@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Dropdown from 'react-bootstrap/Dropdown'
 import { AllBonds } from './bonds/AllBonds';
 import { BondsFiveDayMaturity } from './bonds/BondsFiveDayMaturity';
+import { UserBonds } from './bonds/UserBonds';
 
 const HomePage = () => {
 
@@ -21,11 +22,14 @@ const HomePage = () => {
                 <Dropdown.Menu>
                     <Dropdown.Item onClick={() => handleDropdownSelect('All bonds')} >All bonds</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleDropdownSelect('Bonds +-5 business days maturity')}>Bonds +-5 business days maturity</Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleDropdownSelect('My bonds')} >My bonds</Dropdown.Item>
+                    
                 </Dropdown.Menu>
             </Dropdown>
 
             {selectedItem === 'All bonds' && <AllBonds />}
             {selectedItem == 'Bonds +-5 business days maturity' && <BondsFiveDayMaturity />}
+            {selectedItem == 'My bonds' && <UserBonds />}
         </>
     );
 };
