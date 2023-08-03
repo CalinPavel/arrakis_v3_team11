@@ -8,7 +8,6 @@ INSERT INTO book ( book_name ) VALUES ('Trading_book_6');
 INSERT INTO counter_party ( bond_holder ) VALUES ('AZ Holdings Inc');
 INSERT INTO counter_party ( bond_holder ) VALUES ('Acme Co');
 INSERT INTO counter_party ( bond_holder ) VALUES ('Sovereign Investments');
-INSERT INTO counter_party ( bond_holder ) VALUES ('Astra Trading Ltd');
 INSERT INTO counter_party ( bond_holder ) VALUES ('Muncipal Gov Of Orange County');
 INSERT INTO counter_party ( bond_holder ) VALUES ('Goldman Sachs');
 INSERT INTO counter_party ( bond_holder ) VALUES ('UBS');
@@ -82,9 +81,8 @@ INSERT INTO trade ( trade_type ,  trade_currency ,  quantity ,  trade_settlement
 update trade set book_id=1 where cusip ='' and isin ='XS1988387210';
 update trade set book_id=2 where cusip ='123456780' and isin ='USN0280EAR64';
 update trade set book_id=3 where cusip ='123456bh0' and isin ='A12356111';
-update trade set book_id=4 where cusip ='AMZN 3.15 08/22/27 REGS' and isin ='USU02320AG12';
+update trade set book_id=4 where cusip ='AMZN 3.15 08/22/27 REGS' and isin ='USU02320AG12' or (cusip ='87973RAA8' and isin ='US87973RAA86') ;
 update trade set book_id=5 where cusip ='BDCHBW8' and isin ='GB00B6460505';
-update trade set book_id=6 where cusip ='87973RAA8' and isin ='US87973RAA86';
 
 
 update trade set counter_party_id=1 where cusip ='' and isin ='XS1988387210' and trade_date in ('13/05/2021','04/02/2021');
