@@ -30,6 +30,7 @@ const bondDataExample = {
   issuer_name: 'BNPParibasIssu 4,37% Microsoft Corp (USD)',
   type: 'CORP',
   status: 'active',
+  bond_holder: 'AZ Holdings Inc',
   // trade_type: 'buy',
   // trade_currency: 'USD',
   // quantity: 50,

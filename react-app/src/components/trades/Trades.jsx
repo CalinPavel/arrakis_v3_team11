@@ -1,3 +1,3 @@
+import React from "react";
 
-
-// TODO: display 
+// TODO: display trades in a table

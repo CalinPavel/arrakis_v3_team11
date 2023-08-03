@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Card from 'react-bootstrap/Card'
 import './Bond.css'
 
@@ -16,6 +16,7 @@ export const Bond = ({bondData}) => {
                 <Card.Text className="text"> Issuer Name: {bondData.issuer_name} </Card.Text>
                 <Card.Text className="text"> Type: {bondData.type} </Card.Text>
                 <Card.Text className="text"> Status: {bondData.status} </Card.Text>
+                <Card.Text className="text"> Bond Holder: {bondData.bond_holder} </Card.Text>
             </Card.Body>
         </Card>
     )
