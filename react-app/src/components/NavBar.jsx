@@ -7,7 +7,7 @@ const Navbar = () => {
         <nav className="navbar">
 
             <a className="navbar-brand">
-                Bonds                
+                Bonds & Trades                
             </a>
             <div className="ml-auto">
                 <span className="navbar-text">Hello, John Doe</span>
