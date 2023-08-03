@@ -2,14 +2,15 @@ import { useState, useEffect } from "react";
 import { Bond } from "./Bond";
 import { getBondsFiveDayMaturity } from "../../services/BondService";
 import { Row } from "react-bootstrap";
-
+import Form from 'react-bootstrap/Form'
+import moment from 'moment'
 
 export const BondsFiveDayMaturity = () => {
     const [bonds, setBonds] = useState([]);
 
     // TODO: uncomment when service is available
     // useEffect(() => {
-    //     getBondsFiveDayMaturity()
+    //     getBondsFiveDayMaturity(date)
     //         .then(({ data }) => {
     //             setBonds(data);
     //         });
@@ -19,8 +20,24 @@ export const BondsFiveDayMaturity = () => {
     const temp_data = [bondDataExample, bondDataExample];
     useEffect(() => { setBonds(temp_data); }, []);
 
+
+    // Dealing with dates
+    // Dates in format yyyy-mm-dd
+
+    let today = new Date();
+    today = moment(today).format('YYYY-MM-DD');
+
+    const [date, setDate] = useState({today});
+
+    const handleDate = (e) => {
+        e.preventDefault();
+        setDate(e.target.value);
+        console.log(e.target.value);
+    }
+
     return (
         <>
+            <Form.Control type='date' className='date_picker' onChange={handleDate} defaultValue={today}/>
             <Row>
                 {bonds.map(bond =>
                     <Bond bondData={bond} />)

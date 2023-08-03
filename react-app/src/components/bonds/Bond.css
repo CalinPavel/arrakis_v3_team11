@@ -21,3 +21,8 @@
 .text{
     line-height: 1.25;
 }
+
+.date_picker {
+    margin: 1rem !important;
+    width: 200px !important;
+}

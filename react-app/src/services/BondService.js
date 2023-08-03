@@ -8,7 +8,7 @@ export const getAllBonds = () => {
   return null;
 };
 
-export const getBondsFiveDayMaturity = () => {
+export const getBondsFiveDayMaturity = (date) => {
   return null;
 }
 
