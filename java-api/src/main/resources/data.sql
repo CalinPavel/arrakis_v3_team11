@@ -104,11 +104,11 @@ update trade set counter_party_id=4 where cusip ='AMZN 3.15 08/22/27 REGS' and i
 update trade set counter_party_id=5 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('27/09/2021','28/09/2021');
 update trade set counter_party_id=6 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('29/09/2021','30/09/2021');
 
-update trade set counter_party_id=7 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('01/10/2021','02/10/2021','03/10/2021');
+update trade set counter_party_id=7 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('01/10/2021','02/10/2019','03/10/2019');
 
-update trade set counter_party_id=8 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('04/10/2021');
+update trade set counter_party_id=8 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('04/10/2018');
 
-update trade set counter_party_id=9 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('05/10/2019', '06/06/2021','07/10/2021');
+update trade set counter_party_id=9 where cusip ='BDCHBW8' and isin ='GB00B6460505' and trade_date in ('05/10/2019', '06/06/2021','07/10/2011');
 update trade set counter_party_id=10 where cusip ='87973RAA8' and isin ='US87973RAA86' and trade_date in ('04/02/2012','23/08/2012','04/02/2013','23/08/2014','04/02/2016','23/08/2012','04/02/2013','23/08/2015');
 
 
