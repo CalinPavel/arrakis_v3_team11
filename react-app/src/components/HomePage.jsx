@@ -1,24 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Dropdown from 'react-bootstrap/Dropdown'
 
-
-
 const HomePage = () => {
-    const handleDropdownSelect = (eventKey) => {
-        // Handle the selected item based on eventKey
-        console.log(`Selected option: ${eventKey}`);
+
+    const [selectedItem, setSelectedItem] = useState('All bonds');
+
+    const handleDropdownSelect = (param) => {
+        setSelectedItem(param);
     };
 
     return (
         <>
             <Dropdown>
                 <Dropdown.Toggle variant="primary ">
-                    Display bonds
+                    {selectedItem}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    <Dropdown.Item eventKey="option1">All Bonds</Dropdown.Item>
-                    <Dropdown.Item eventKey="option2">Bonds within 5 business day maturity</Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleDropdownSelect('All bonds')} >All bonds</Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleDropdownSelect('Bonds +-5 business days maturity')}>Bonds +-5 business days maturity</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
         </>
