@@ -1,43 +1,61 @@
-import React from 'react'
-import {firebase} from 'firebase/compat/app'
-import 'firebase/compat/auth'
-import signInWithEmailAndPassword from 'firebase/compat/auth'
-import { Button } from 'bootstrap'
-import { getAuth } from 'firebase/auth'
-import { useState } from 'react'
+import React from 'react';
+import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth';
+import { Button } from 'react-bootstrap';
+import { getAuth} from 'firebase/auth';
+import { useState } from 'react';
+import { Form, Row } from 'react-bootstrap';
+import {auth} from '../config/firebase';
 
-export default Login = () => {
-    const auth = getAuth();
-    const[email, setEmail] = useState("")
-    const[password, setPassword] = useState("")
+
+const Login = () => {
+    //const auth = getAuth();
+    const[email, setEmail] = useState("");
+    const[password, setPassword] = useState("");
+
+    const handleRegister = () => {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log('Registered with:', user.email)
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        })
+    };
+
     const handleLogin  =  () => {
-    signInWithEmailAndPassword(email, password)
-        .then(userCredentials => {
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredentials) => {
         const user = userCredentials.user;
         console.log('Logged in with:', user.email);
         })
-    }
-        // .catch(error => alert(error.message))
-        // }
-
+        .catch(error => alert(error.message))
+    };
 
   return (
     <>
-    <form>
-        <label>
-            <p>Username:</p>
-            <input type = "text" />
-        </label>
-        <div>
-            <label>
-                <p>Password::</p>
-                <input type = "password" />
-            </label>
-        </div>
-        <div>
-            <button type = "submit">Login</button>
-        </div>
-    </form>
+    <Row className='LoginForm'>
+        <Form >
+            <Form.Group className="mb-3" controlId="username">
+                <Form.Label>Username: </Form.Label>
+                <Form.Control placeholder="Username" onChange={(event)=>setEmail(event.target.value)}/>
+            </Form.Group>
+                <Form.Group className="mb-3" controlId="password">
+                <Form.Label>Password: </Form.Label>
+                <Form.Control type="password" placeholder="Password" 
+                onChange={(event)=>setPassword(event.target.value)}/>
+            </Form.Group>
+            <Button variant='Primary' onClick={handleRegister}> 
+                Register
+            </Button>
+            <Button variant='Primary' onClick={handleLogin}> 
+                Login
+            </Button>
+        </Form>      
+    </Row>
     </>
   )
 };
+
+export default Login;
