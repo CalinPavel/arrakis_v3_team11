@@ -44,13 +44,16 @@ CREATE TABLE trade (
     trade_settlement_date varchar(50) NOT NULL,
     trade_status VARCHAR(10) NOT NULL,
     trade_date varchar(50) NOT NULL,
+    cusip VARCHAR(50),
+    isin VARCHAR(50) NOT NULL ,
     security_id INT,
-    FOREIGN KEY (security_id) REFERENCES security (security_id),
+    FOREIGN KEY (security_id) REFERENCES security(security_id),
     book_id INT,
     FOREIGN KEY (book_id) REFERENCES book (book_id),
     counter_party_id INT,
     FOREIGN KEY (counter_party_id) REFERENCES counter_party (counter_party_id)
 );
+
 
 
 
