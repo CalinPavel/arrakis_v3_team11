@@ -8,6 +8,10 @@ export const getAllBonds = () => {
   return null;
 };
 
+export const getBondsFiveDayMaturity = () => {
+  return null;
+}
+
 
 
 // Example data

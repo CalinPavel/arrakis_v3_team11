@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { Bond } from "./Bond";
-import { getAllBonds } from "../../services/BondService";
+import { getBondsFiveDayMaturity } from "../../services/BondService";
 import { Row } from "react-bootstrap";
 
 
-export const AllBonds = () => {
+export const BondsFiveDayMaturity = () => {
     const [bonds, setBonds] = useState([]);
 
     // TODO: uncomment when service is available
     // useEffect(() => {
-    //     getAllBonds()
+    //     getBondsFiveDayMaturity()
     //         .then(({ data }) => {
     //             setBonds(data);
     //         });
@@ -34,7 +34,7 @@ const bondDataExample = {
     cusip: 'NULL',
     isin: "XS1988387210",
     bond_currency: 'USD',
-    bond_maturity_date: '05/08/2021',
+    bond_maturity_date: '05/08/2023',
     coupon_percent: 4.37,
     unit_price: 90,
     face_value: 1000,
