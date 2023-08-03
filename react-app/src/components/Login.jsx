@@ -7,7 +7,6 @@ import { Form, Row } from 'react-bootstrap';
 import {auth} from '../config/firebase';
 import './Login.css';
 
-
 const Login = () => {
     //const auth = getAuth();
     const[email, setEmail] = useState("");
