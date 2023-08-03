@@ -1,13 +1,13 @@
 
 import './Navbar.css'
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar = () => {
     return (
         <nav className="navbar">
 
             <a className="navbar-brand">
-                Bonds
+                Bonds                
             </a>
             <div className="ml-auto">
                 <span className="navbar-text">Hello, John Doe</span>

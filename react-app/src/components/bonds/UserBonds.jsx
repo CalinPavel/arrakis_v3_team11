@@ -19,6 +19,7 @@ export const UserBonds = (user) => {
     const temp_data = [bondDataExample];
     useEffect(() => { setBonds(temp_data); }, []);
 
+
     return (
         <>
             <Row>
