@@ -3,16 +3,18 @@ import { Bond } from "./components/bonds/Bond";
 import { AllBonds } from "./components/bonds/AllBonds";
 import HomePage from "./components/HomePage";
 import Navbar from "./components/NavBar";
+import Login from "./components/Login";
 
 const App = () => {
   // return <Bond bondData={bondDataExample}/>;
   return (
     <div>
-      <Navbar/>
-      <HomePage/>
+      <Navbar />
+      <HomePage />
+      <Login />
     </div>
   )
-};
+}
 
 export default App;
 
