@@ -37,4 +37,15 @@ public class SecurityHandler implements ISecurityService {
         securityRepository.deleteById(securityId);
     }
 
+    public Security getSecurityByIssuerName(String name) {
+        List<Security> all = securityRepository.findAll();
+
+        for (Security security : all) {
+            if (security.getIssuerName().equalsIgnoreCase(name)) {
+                return security;
+            }
+        }
+        return null;
+    }
+
 }
