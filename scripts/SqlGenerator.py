@@ -1,7 +1,7 @@
 import csv
 
 
-file = 'counter_party.csv'
+file = 'trade.csv'
 table = file.replace('.csv','')
 
 openFile = open(file, 'r')
@@ -12,9 +12,15 @@ transformed_columns=[]
 for column_name in header:
     transformed_columns.append((column_name.encode('ascii','ignore').decode('utf')))
 
+
+
 headers = map((lambda x: '`' + x + '`'), transformed_columns)
+
 insert = f'INSERT INTO {table} (' + ", ".join(headers) + ") VALUES "
 for row in csvFile:
+
     values = map((lambda x: "'" + x + "'"), row)
-    print(insert + "(" + ", ".join(values) +");" )
+    query = insert + "(" + ", ".join(values) +");"
+    print(query.replace("`"," "))
+
 openFile.close()
