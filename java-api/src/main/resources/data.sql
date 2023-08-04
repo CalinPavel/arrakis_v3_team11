@@ -103,3 +103,7 @@ update trade set security_id=4 where cusip ='AMZN 3.15 08/22/27 REGS' and isin =
 update trade set security_id=5 where cusip ='BDCHBW8' and isin ='GB00B6460505' and issuer_name='HM Treasury United Kingdon';
 update trade set security_id=6 where cusip ='87973RAA8' and isin ='US87973RAA86' and issuer_name='TEMASEK FINL I LTD GLOBAL MEDIUM TERM NTS BOOK ENTRY REG S';
 update trade set security_id=7 where cusip ='87973RAA8' and isin ='US87973RAA86' and issuer_name= 'First Norway Alpha Kl.IV';
+
+
+INSERT INTO app_user (user_name, password) VALUES ('jane_smith', 'abc123');
+INSERT INTO book_user (book_id, user_id) VALUES (1, 1);
