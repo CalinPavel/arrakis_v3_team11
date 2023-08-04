@@ -6,7 +6,7 @@ import { UserBonds } from './bonds/UserBonds';
 import { Trades } from './trades/Trades';
 import Badge from 'react-bootstrap/Badge'
 
-const HomePage = () => {
+const HomePage = (userdetail) => {
 
     const [selectedItem, setSelectedItem] = useState('All bonds');
     const handleDropdownSelect = (param) => {

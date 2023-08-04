@@ -11,7 +11,7 @@ import { Navigate, redirect } from 'react-router-dom';
 import {HomePage} from './HomePage';
 import Navbar from './NavBar';
 
-const Login = () => {
+const Login = ({setUserdetail}) => {
     //const auth = getAuth();
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
@@ -39,6 +39,13 @@ const Login = () => {
         const user = userCredentials.user;
         console.log('Logged in with:', user.email);
         setLogin(true);
+        if (user){user.getIdToken().then((result) => {
+            setUserdetail({
+                "user_email": user.email,
+                "firebase_token": result
+            })
+        })}
+        // console.log("User Token: ", user.getIdToken())
         // redirect("/HomePage");
         })
         .catch(error => alert(error.message))
