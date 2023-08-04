@@ -11,8 +11,7 @@ import Navbar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 // import * as bst from 'bootstrap/dist/css/bootstrap-theme.css'
 
-const root = ReactDOM.render(
-  
+ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
@@ -26,14 +25,14 @@ const root = ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />}/>
-        <Route path='/HomePage' element={<HomePage />}/>
-        {/* <Route path="/Navbar" element={<Navbar />} /> */}
-      </Routes>
-    </BrowserRouter>  
-  </React.StrictMode>
-);
+// root.render(
+//   <React.StrictMode>
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<Login />}/>
+//         <Route path='/HomePage' element={<HomePage />}/>
+//         {/* <Route path="/Navbar" element={<Navbar />} /> */}
+//       </Routes>
+//     </BrowserRouter>  
+//   </React.StrictMode>
+// );

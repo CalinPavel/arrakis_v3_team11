@@ -17,12 +17,14 @@ const Login = () => {
     const[password, setPassword] = useState("");
     //const navigate = useNavigate();
     const[login, setLogin] = useState(false);
+    const[register,setRegister] = useState(false)
 
     const handleRegister = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             console.log('Registered with:', user.email);
+            setRegister(true);
             // redirect("/HomePage");
         })
         .catch((error) => {
@@ -44,6 +46,7 @@ const Login = () => {
 
     if (login) {return <Navigate to = "/HomePage" />};
         // <Navigate to = "/HomePage" />};
+    if (register) {return <Navigate to = "/HomePage" />};
 
   return (
     <>
