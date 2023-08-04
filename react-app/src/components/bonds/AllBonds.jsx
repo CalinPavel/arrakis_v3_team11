@@ -42,5 +42,5 @@ export const AllBonds = () => {
 //     type: 'CORP',
 //     status: 'active',
 //     bond_holder: 'AZ Holdings Inc',
-//     book: 'Trading_book_1'
+//     tradingBook: 'Trading_book_1'
 // };
