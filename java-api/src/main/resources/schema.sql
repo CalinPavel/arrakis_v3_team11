@@ -33,8 +33,7 @@ CREATE TABLE counter_party (
 
 CREATE TABLE app_user (
     user_id int auto_increment PRIMARY KEY,
-    user_name VARCHAR (100) NOT NULL,
-    password VARCHAR (100) NOT NULL
+    user_email_address varchar (100) NOT NULL,
 );
 
 CREATE TABLE trade (
@@ -57,7 +56,7 @@ CREATE TABLE trade (
 );
 
 CREATE TABLE book_user (
-    book_id INT REFERENCES book(book_id),
-    user_id INT REFERENCES app_user(user_id),
+    book_id INT NOT NULL REFERENCES book(book_id),
+    user_id INT NOT NULL REFERENCES app_user(user_id),
     PRIMARY KEY (book_id , user_id)
 );
