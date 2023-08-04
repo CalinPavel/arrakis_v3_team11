@@ -6,17 +6,21 @@ import { useState } from 'react';
 import { Form, Row } from 'react-bootstrap';
 import {auth} from '../config/firebase';
 import './Login.css';
+import { Router } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     //const auth = getAuth();
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleRegister = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             console.log('Registered with:', user.email)
+            navigate('/HomePage');
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -29,6 +33,7 @@ const Login = () => {
         .then((userCredentials) => {
         const user = userCredentials.user;
         console.log('Logged in with:', user.email);
+        navigate('/HomePage');
         })
         .catch(error => alert(error.message))
     };
@@ -46,10 +51,11 @@ const Login = () => {
                 <Form.Control type="password" placeholder="Password" 
                 onChange={(event)=>setPassword(event.target.value)}/>
             </Form.Group>
-            <Button className='RegisterButton' variant='Primary' onClick={handleRegister}> 
+            <Button className='RegisterButton' variant='Primary' onClick={handleRegister}>  
                 Register
             </Button>
-            <Button className='LoginButton' variant='Primary' onClick={handleLogin}> 
+            <Button className='LoginButton' variant='Primary' onClick={handleLogin}
+            type = 'submit'> 
                 Login
             </Button>
         </Form>      

@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 import * as bs from 'bootstrap/dist/css/bootstrap.css'
+import Login from './components/Login';
+import HomePage from './components/HomePage';
 // import * as bst from 'bootstrap/dist/css/bootstrap-theme.css'
 
 ReactDOM.render(
@@ -17,3 +20,15 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<App />}/>
+        <Route path="login" element={<Login />}/>
+        <Route path='HomePage' element={<HomePage />}/>
+      </Routes>
+    </BrowserRouter>  
+  </React.StrictMode>
+);
