@@ -88,21 +88,26 @@ public class SecurityHandler implements ISecurityService {
         return out;
     }
 
-    public List<Security> getSecurityBy5DaysBodsDate(String dateRequest){
+    public List<Security> getSecurityBy5DaysBondsDate(String dateRequest){
 
         List<Security> all = securityRepository.findAll();
         List<Security> result = new ArrayList<Security>();
 
-        System.out.println(dateRequest);
+        System.out.println(dateRequest); //YYYY-MM-DD
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate check = LocalDate.parse(dateRequest, formatter);
 
         LocalDate fiveDaysBeforeCurrentDate = check.minusDays(5);
         LocalDate fiveDaysAfterCurrentDate = check.plusDays(5);
 
+
         for (Security itr : all) {
-            String convertedDate = convertDateFormat(itr.getBondMaturityDate(), "MM/dd/yyyy", "MM-dd-yyyy");
+            String convertedDate = convertToYYYYMMDD(itr.getBondMaturityDate());
+
+            if(convertedDate == null)
+                return null;
+
             LocalDate checkFromArray = LocalDate.parse(convertedDate, formatter);
 
             if (checkFromArray.isAfter(fiveDaysBeforeCurrentDate) && checkFromArray.isBefore(fiveDaysAfterCurrentDate)) {
@@ -111,7 +116,6 @@ public class SecurityHandler implements ISecurityService {
             }
         }
 
-
         if(result.isEmpty())
             return null;
 
@@ -119,14 +123,14 @@ public class SecurityHandler implements ISecurityService {
     }
 
 
-    //method used for converting from dd/mm/YYYY to dd-mm-YYY (it's easier for the url parser)
-    public static String convertDateFormat(String inputDate, String inputFormat, String outputFormat) {
-        SimpleDateFormat inputDateFormat = new SimpleDateFormat(inputFormat);
-        SimpleDateFormat outputDateFormat = new SimpleDateFormat(outputFormat);
+    //method used for converting from dd/mm/YYYY to YYYY-MM-dd (it's easier for the url parser)
+    public static String convertToYYYYMMDD(String inputDate) {
+        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            Date date = inputDateFormat.parse(inputDate);
-            return outputDateFormat.format(date);
+            Date date = inputFormat.parse(inputDate);
+            return outputFormat.format(date);
         } catch (ParseException e) {
             e.printStackTrace();
             return null;
