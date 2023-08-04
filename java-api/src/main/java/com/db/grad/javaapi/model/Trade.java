@@ -28,6 +28,15 @@ public class Trade {
     @Column(length = 50, nullable = false)
     private String tradeDate;
 
+    @Column(nullable = false)
+    private Double couponPercent;
+
+    @Column(nullable = false)
+    private Double unitPrice;
+
+    @Column(nullable = false)
+    private int faceValue;
+
     @Column(length = 50)
     private String cusip;
 
