@@ -7,26 +7,28 @@ import { Form, Row } from 'react-bootstrap';
 import {auth} from '../config/firebase';
 import './Login.css';
 import { Router, Routes } from 'react-router-dom';
-import { redirect } from 'react-router-dom';
+import { Navigate, redirect } from 'react-router-dom';
+import {HomePage} from './HomePage';
+import Navbar from './NavBar';
 
 const Login = () => {
     //const auth = getAuth();
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
     //const navigate = useNavigate();
+    const[login, setLogin] = useState(false);
 
     const handleRegister = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             console.log('Registered with:', user.email);
-            redirect('/HomePage');
+            // redirect("/HomePage");
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
         })
-        
     };
 
     const handleLogin  =  () => {
@@ -34,10 +36,14 @@ const Login = () => {
         .then((userCredentials) => {
         const user = userCredentials.user;
         console.log('Logged in with:', user.email);
-        redirect('/HomePage');
+        setLogin(true);
+        // redirect("/HomePage");
         })
         .catch(error => alert(error.message))
     };
+
+    if (login) {return <Navigate to = "/HomePage" />};
+        // <Navigate to = "/HomePage" />};
 
   return (
     <>

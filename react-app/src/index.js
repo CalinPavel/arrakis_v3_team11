@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import * as bs from 'bootstrap/dist/css/bootstrap.css'
 import Login from './components/Login';
 import HomePage from './components/HomePage';
+import Navbar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 // import * as bst from 'bootstrap/dist/css/bootstrap-theme.css'
 
@@ -28,7 +29,11 @@ reportWebVitals();
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-        <App/>
+      <Routes>
+        <Route path="/" element={<Login />}/>
+        <Route path='/HomePage' element={<HomePage />}/>
+        {/* <Route path="/Navbar" element={<Navbar />} /> */}
+      </Routes>
     </BrowserRouter>  
   </React.StrictMode>
 );
