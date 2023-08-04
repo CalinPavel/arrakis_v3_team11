@@ -8,26 +8,34 @@ import java.util.Date;
 public class Trade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "trade_id")
-    private Integer tradeId;
+    private int tradeId;
 
-    @Column(name = "trade_type", length = 10, nullable = false)
+    @Column(length = 10, nullable = false)
     private String tradeType;
 
-    @Column(name = "trade_currency", length = 10, nullable = false)
+    @Column(length = 10, nullable = false)
     private String tradeCurrency;
 
-    @Column(name = "quantity", nullable = false)
-    private Integer quantity;
+    @Column(nullable = false)
+    private int quantity;
 
-    @Column(name = "trade_settlement_date", nullable = false)
-    private Date tradeSettlementDate;
+    @Column(length = 50, nullable = false)
+    private String tradeSettlementDate;
 
-    @Column(name = "trade_status", length = 10, nullable = false)
+    @Column(length = 10, nullable = false)
     private String tradeStatus;
 
-    @Column(name = "trade_date", nullable = false)
-    private Date tradeDate;
+    @Column(length = 50, nullable = false)
+    private String tradeDate;
+
+    @Column(length = 50)
+    private String cusip;
+
+    @Column(length = 50, nullable = false)
+    private String isin;
+
+    @Column(length = 100)
+    private String issuerName;
 
     @ManyToOne
     @JoinColumn(name = "security_id", referencedColumnName = "security_id")
@@ -41,47 +49,7 @@ public class Trade {
     @JoinColumn(name = "counter_party_id", referencedColumnName = "counter_party_id")
     private CounterParty counterParty;
 
-    public Integer getTradeId() {
-        return tradeId;
-    }
-
-    public String getTradeType() {
-        return tradeType;
-    }
-
-    public String getTradeCurrency() {
-        return tradeCurrency;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public Date getTradeSettlementDate() {
-        return tradeSettlementDate;
-    }
-
-    public String getTradeStatus() {
-        return tradeStatus;
-    }
-
-    public Date getTradeDate() {
-        return tradeDate;
-    }
-
-    public Security getSecurity() {
-        return security;
-    }
-
-    public Book getBook() {
-        return book;
-    }
-
-    public CounterParty getCounterParty() {
-        return counterParty;
-    }
-
-    public void setTradeId(Integer tradeId) {
+    public void setTradeId(int tradeId) {
         this.tradeId = tradeId;
     }
 
@@ -93,11 +61,11 @@ public class Trade {
         this.tradeCurrency = tradeCurrency;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public void setTradeSettlementDate(Date tradeSettlementDate) {
+    public void setTradeSettlementDate(String tradeSettlementDate) {
         this.tradeSettlementDate = tradeSettlementDate;
     }
 
@@ -105,8 +73,20 @@ public class Trade {
         this.tradeStatus = tradeStatus;
     }
 
-    public void setTradeDate(Date tradeDate) {
+    public void setTradeDate(String tradeDate) {
         this.tradeDate = tradeDate;
+    }
+
+    public void setCusip(String cusip) {
+        this.cusip = cusip;
+    }
+
+    public void setIsin(String isin) {
+        this.isin = isin;
+    }
+
+    public void setIssuerName(String issuerName) {
+        this.issuerName = issuerName;
     }
 
     public void setSecurity(Security security) {
@@ -119,5 +99,57 @@ public class Trade {
 
     public void setCounterParty(CounterParty counterParty) {
         this.counterParty = counterParty;
+    }
+
+    public int getTradeId() {
+        return tradeId;
+    }
+
+    public String getTradeType() {
+        return tradeType;
+    }
+
+    public String getTradeCurrency() {
+        return tradeCurrency;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public String getTradeSettlementDate() {
+        return tradeSettlementDate;
+    }
+
+    public String getTradeStatus() {
+        return tradeStatus;
+    }
+
+    public String getTradeDate() {
+        return tradeDate;
+    }
+
+    public String getCusip() {
+        return cusip;
+    }
+
+    public String getIsin() {
+        return isin;
+    }
+
+    public String getIssuerName() {
+        return issuerName;
+    }
+
+    public Security getSecurity() {
+        return security;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public CounterParty getCounterParty() {
+        return counterParty;
     }
 }

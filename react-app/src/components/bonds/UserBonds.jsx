@@ -43,4 +43,5 @@ const bondDataExample = {
     type: 'CORP',
     status: 'active',
     bond_holder: 'AZ Holdings Inc',
+    tradingBook: 'Trading_book_1'
 };

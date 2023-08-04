@@ -9,39 +9,40 @@ public class Security {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "security_id")
-    private Integer securityId;
 
-    @Column(name = "cusip", length = 50)
+    private int securityId;
+
+    @Column(length = 50)
     private String cusip;
 
-    @Column(name = "isin", length = 50, nullable = false)
+    @Column(length = 50, nullable = false)
     private String isin;
 
-    @Column(name = "bond_currency", length = 10, nullable = false)
+    @Column(length = 10, nullable = false)
     private String bondCurrency;
 
-    @Column(name = "bond_maturity_date", nullable = false)
-    private Date bondMaturityDate;
+    @Column(length = 50, nullable = false)
+    private String bondMaturityDate;
 
-    @Column(name = "coupon_percent", nullable = false)
+    @Column(nullable = false)
     private Double couponPercent;
 
-    @Column(name = "unit_price", nullable = false)
+    @Column(nullable = false)
     private Double unitPrice;
 
-    @Column(name = "face_value", nullable = false)
-    private Integer faceValue;
+    @Column(nullable = false)
+    private int faceValue;
 
-    @Column(name = "issuer_name", length = 100, nullable = false)
+    @Column(length = 100, nullable = false)
     private String issuerName;
 
-    @Column(name = "type", length = 50, nullable = false)
+    @Column(length = 50, nullable = false)
     private String type;
 
-    @Column(name = "status", length = 50, nullable = false)
+    @Column(length = 50, nullable = false)
     private String status;
 
-    public Integer getSecurityId() {
+    public int getSecurityId() {
         return securityId;
     }
 
@@ -57,7 +58,7 @@ public class Security {
         return bondCurrency;
     }
 
-    public Date getBondMaturityDate() {
+    public String getBondMaturityDate() {
         return bondMaturityDate;
     }
 
@@ -69,7 +70,7 @@ public class Security {
         return unitPrice;
     }
 
-    public Integer getFaceValue() {
+    public int getFaceValue() {
         return faceValue;
     }
 
@@ -81,7 +82,11 @@ public class Security {
         return type;
     }
 
-    public void setSecurityId(Integer securityId) {
+    public String getStatus() {
+        return status;
+    }
+
+    public void setSecurityId(int securityId) {
         this.securityId = securityId;
     }
 
@@ -97,7 +102,7 @@ public class Security {
         this.bondCurrency = bondCurrency;
     }
 
-    public void setBondMaturityDate(Date bondMaturityDate) {
+    public void setBondMaturityDate(String bondMaturityDate) {
         this.bondMaturityDate = bondMaturityDate;
     }
 
@@ -109,7 +114,7 @@ public class Security {
         this.unitPrice = unitPrice;
     }
 
-    public void setFaceValue(Integer faceValue) {
+    public void setFaceValue(int faceValue) {
         this.faceValue = faceValue;
     }
 
@@ -121,9 +126,6 @@ public class Security {
         this.type = type;
     }
 
-    public String getStatus() {
-        return status;
-    }
     public void setStatus(String status) {
         this.status = status;
     }
