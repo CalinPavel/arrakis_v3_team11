@@ -8,36 +8,23 @@ public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Integer userId;
+    private int user_id;
 
-    @Column(name = "user_name", length = 100, nullable = false)
-    private String userName;
+    private String user_email_address;
 
-    @Column(name = "password", length = 100, nullable = false)
-    private String password;
-
-    public Integer getUserId() {
-        return userId;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUser_email_address() {
+        return user_email_address;
     }
 
-    public String getPassword() {
-        return password;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUser_email_address(String user_email_address) {
+        this.user_email_address = user_email_address;
     }
 }

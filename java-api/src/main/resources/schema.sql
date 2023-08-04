@@ -33,7 +33,7 @@ CREATE TABLE counter_party (
 
 CREATE TABLE app_user (
     user_id int auto_increment PRIMARY KEY,
-    user_email_address varchar (100) NOT NULL,
+    user_email_address varchar (100) NOT NULL
 );
 
 CREATE TABLE trade (
