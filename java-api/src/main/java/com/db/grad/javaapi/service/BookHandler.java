@@ -34,7 +34,7 @@ public class BookHandler implements IBookService{
     }
 
     @Override
-    public void deleteBook(Integer userId) {
-        bookRepository.deleteById(userId);
+    public void deleteBook(Integer bookId) {
+        bookRepository.deleteById(bookId);
     }
 }
