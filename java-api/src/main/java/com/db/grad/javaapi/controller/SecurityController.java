@@ -19,13 +19,18 @@ public class SecurityController {
     public SecurityController(SecurityHandler sh){securityService = sh;}
 
     @GetMapping("/securities")
-    public List<Security> getAllDogs() {
+    public List<Security> getAllSecurities() {
         return securityService.getAllSecurities();
     }
 
     @GetMapping("/securities/{issuerName}")
-    public Security getSecurityByIssuerName(@PathVariable(value = "issuerName") String issuerName){
+    public List<Security> getSecurityByIssuerName(@PathVariable(value = "issuerName") String issuerName){
         return securityService.getSecurityByIssuerName(issuerName);
+    }
+
+    @GetMapping("/securities/{issuerName}/get5daysbods")
+    public List<Security> getSecurityBy5DaysBods(@PathVariable(value = "issuerName") String issuerName){
+        return securityService.getSecurityBy5DaysBods(issuerName);
     }
 
 }
