@@ -55,6 +55,8 @@ CREATE TABLE trade (
     FOREIGN KEY (counter_party_id) REFERENCES counter_party (counter_party_id)
 );
 
-
-
-
+CREATE TABLE book_user (
+    book_id INT REFERENCES book(book_id),
+    user_id INT REFERENCES app_user(user_id),
+    PRIMARY KEY (book_id , user_id)
+);
