@@ -18,6 +18,8 @@ export const Bond = ({bondData}) => {
                 <Card.Text className="text"> Status: {bondData.status} </Card.Text>
                 {/* TODO: get bondHolder attribute from endpoint */}
                 <Card.Text className="text"> Bond Holder: {bondData.bondHolder} </Card.Text>
+                <Card.Text className="text"> Trading Book: {bondData.tradingBook} </Card.Text>
+
             </Card.Body>
         </Card>
     )
