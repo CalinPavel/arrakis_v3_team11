@@ -7,11 +7,15 @@ import { BrowserRouter } from 'react-router-dom';
 import * as bs from 'bootstrap/dist/css/bootstrap.css'
 import Login from './components/Login';
 import HomePage from './components/HomePage';
+import { Route, Routes } from 'react-router-dom';
 // import * as bst from 'bootstrap/dist/css/bootstrap-theme.css'
 
-ReactDOM.render(
+const root = ReactDOM.render(
+  
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -24,11 +28,7 @@ reportWebVitals();
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route index element={<App />}/>
-        <Route path="login" element={<Login />}/>
-        <Route path='HomePage' element={<HomePage />}/>
-      </Routes>
+        <App/>
     </BrowserRouter>  
   </React.StrictMode>
 );

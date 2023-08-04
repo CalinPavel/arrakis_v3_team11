@@ -4,15 +4,24 @@ import { AllBonds } from "./components/bonds/AllBonds";
 import HomePage from "./components/HomePage";
 import Navbar from "./components/NavBar";
 import Login from "./components/Login";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   // return <Bond bondData={bondDataExample}/>;
   return (
+    <>
     <div>
       <Navbar />
       <HomePage />
       <Login />
     </div>
+
+    <Routes>
+        <Route path="/" element={Login}/>
+        <Route path='/HomePage' element={HomePage}/>
+    </Routes>
+
+    </>
   )
 }
 

@@ -6,26 +6,27 @@ import { useState } from 'react';
 import { Form, Row } from 'react-bootstrap';
 import {auth} from '../config/firebase';
 import './Login.css';
-import { Router } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Router, Routes } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 
 const Login = () => {
     //const auth = getAuth();
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     const handleRegister = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            console.log('Registered with:', user.email)
-            navigate('/HomePage');
+            console.log('Registered with:', user.email);
+            redirect('/HomePage');
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
         })
+        
     };
 
     const handleLogin  =  () => {
@@ -33,7 +34,7 @@ const Login = () => {
         .then((userCredentials) => {
         const user = userCredentials.user;
         console.log('Logged in with:', user.email);
-        navigate('/HomePage');
+        redirect('/HomePage');
         })
         .catch(error => alert(error.message))
     };
@@ -46,7 +47,7 @@ const Login = () => {
                 <Form.Label>Username: </Form.Label>
                 <Form.Control placeholder="Username" onChange={(event)=>setEmail(event.target.value)}/>
             </Form.Group>
-            <Form.Group className="inpurform" controlId="password">
+            <Form.Group className="inputform" controlId="password">
                 <Form.Label>Password: </Form.Label>
                 <Form.Control type="password" placeholder="Password" 
                 onChange={(event)=>setPassword(event.target.value)}/>
@@ -54,8 +55,7 @@ const Login = () => {
             <Button className='RegisterButton' variant='Primary' onClick={handleRegister}>  
                 Register
             </Button>
-            <Button className='LoginButton' variant='Primary' onClick={handleLogin}
-            type = 'submit'> 
+            <Button className='LoginButton' variant='Primary' onClick={handleLogin}> 
                 Login
             </Button>
         </Form>      
