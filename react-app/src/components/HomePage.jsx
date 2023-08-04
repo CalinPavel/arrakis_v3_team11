@@ -3,6 +3,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import { AllBonds } from './bonds/AllBonds';
 import { BondsFiveDayMaturity } from './bonds/BondsFiveDayMaturity';
 import { UserBonds } from './bonds/UserBonds';
+import { Trades } from './trades/Trades';
 import Badge from 'react-bootstrap/Badge'
 
 const HomePage = () => {
@@ -33,7 +34,7 @@ const HomePage = () => {
                     <Dropdown.Item onClick={() => handleDropdownSelect('All bonds')} >All bonds</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleDropdownSelect('Bonds +-5 business days maturity')}>Bonds +-5 business days maturity</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleDropdownSelect('My bonds')} >My bonds</Dropdown.Item>
-
+                    <Dropdown.Item onClick={() => handleDropdownSelect('All trades')} >All trades</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
 
@@ -43,6 +44,7 @@ const HomePage = () => {
             {selectedItem === 'All bonds' && <AllBonds />}
             {selectedItem == 'Bonds +-5 business days maturity' && <BondsFiveDayMaturity />}
             {selectedItem == 'My bonds' && <UserBonds />}
+            {selectedItem == 'All trades' && <Trades />}
         </>
     );
 };
