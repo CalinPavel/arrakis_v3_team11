@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import './Bond.css'
 
 export const Bond = ({bondData}) => {
+    console.log(bondData)
     return (
         <Card className='container'>
             <Card.Body>
@@ -17,7 +18,7 @@ export const Bond = ({bondData}) => {
                 <Card.Text className="text"> Type: {bondData.type} </Card.Text>
                 <Card.Text className="text"> Status: {bondData.status} </Card.Text>
                 <Card.Text className="text"> Bond Holder: {bondData.bondHolder} </Card.Text>
-                <Card.Text className="text"> Trading Book: {bondData.tradingBook} </Card.Text>
+                <Card.Text className="text"> Trading Book: {bondData.bookName} </Card.Text>
             </Card.Body>
         </Card>
     )
