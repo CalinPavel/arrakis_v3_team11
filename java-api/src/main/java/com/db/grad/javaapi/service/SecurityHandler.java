@@ -1,7 +1,12 @@
 package com.db.grad.javaapi.service;
 
+import com.db.grad.javaapi.dto.Bond;
 import com.db.grad.javaapi.model.Security;
+import com.db.grad.javaapi.model.Trade;
+import com.db.grad.javaapi.repository.BookRepository;
+import com.db.grad.javaapi.repository.CounterPartyRepository;
 import com.db.grad.javaapi.repository.SecurityRepository;
+import com.db.grad.javaapi.repository.TradeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,16 +17,24 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class SecurityHandler implements ISecurityService {
 
     private final SecurityRepository securityRepository;
 
+    private final TradeRepository tradeRepository;
+
+    private final CounterPartyRepository counterPartyRepository;
+
+    private final BookRepository bookRepository;
+
     @Autowired
-    public SecurityHandler(SecurityRepository securityRepository) {
+    public SecurityHandler(SecurityRepository securityRepository, TradeRepository tradeRepository, CounterPartyRepository counterPartyRepository, BookRepository bookRepository) {
         this.securityRepository = securityRepository;
+        this.tradeRepository = tradeRepository;
+        this.counterPartyRepository = counterPartyRepository;
+        this.bookRepository = bookRepository;
     }
 
     @Override
@@ -89,12 +102,11 @@ public class SecurityHandler implements ISecurityService {
         return out;
     }
 
-    public List<Security> getSecurityBy5DaysBondsDate(String dateRequest){
+    public List<Bond> getSecurityBy5DaysBondsDate(String dateRequest){
 
-        List<Security> all = securityRepository.findAll();
-        List<Security> result = new ArrayList<Security>();
+        List<Bond> all = getBond();
+        List<Bond> result = new ArrayList<Bond>();
 
-        System.out.println(dateRequest); //YYYY-MM-DD
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate check = LocalDate.parse(dateRequest, formatter);
@@ -103,7 +115,7 @@ public class SecurityHandler implements ISecurityService {
         LocalDate fiveDaysAfterCurrentDate = check.plusDays(5);
 
 
-        for (Security itr : all) {
+        for (Bond itr : all) {
             String convertedDate = convertToYYYYMMDD(itr.getBondMaturityDate());
 
             if(convertedDate == null)
@@ -140,9 +152,35 @@ public class SecurityHandler implements ISecurityService {
 
 
 
-    public Object getBond() {
-        return securityRepository.findBond();
-    }
+    public List<Bond> getBond() {
+        List<Security> all = securityRepository.findAll();
+        List<Bond> out = new ArrayList<>();
 
+        for (Security itr : all) {
+            Bond to_add = new Bond();
+
+            to_add.setCusip(itr.getCusip());
+            to_add.setIsin(itr.getIsin());
+            to_add.setBondCurrency(itr.getBondCurrency());
+            to_add.setIssuerName(itr.getIssuerName());
+            to_add.setType(itr.getType());
+            to_add.setBondMaturityDate(itr.getBondMaturityDate());
+            to_add.setStatus(itr.getStatus());
+
+            List<Trade> all_trades =  tradeRepository.findAll();
+
+           for(Trade trade_itr : all_trades){
+               if(trade_itr.getSecurity().getSecurityId() == (itr.getSecurityId())){
+                   to_add.setCouponPercent(trade_itr.getCouponPercent());
+                   to_add.setUnitPrice(trade_itr.getUnitPrice());
+                   to_add.setFaceValue(trade_itr.getFaceValue());
+                   to_add.setBookName( bookRepository.getReferenceById(trade_itr.getBook().getBookId()).getBookName());
+                   to_add.setBondHolder(counterPartyRepository.getReferenceById(trade_itr.getCounterParty().getCounterPartyId()).getBondHolder());
+               }
+           }
+           out.add(to_add);
+        }
+        return out;
+    }
 
 }
