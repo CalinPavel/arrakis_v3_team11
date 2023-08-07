@@ -73,7 +73,7 @@ public class SecurityHandler implements ISecurityService {
     }
 
 
-    public List<Security> getSecurityBy5DaysBods(String name) {
+    public List<Security> getSecurityBy5DaysBonds(String name) {
         List<Security> result = new ArrayList<Security>();
         result = getSecurityByIssuerName(name);
 

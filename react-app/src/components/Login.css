@@ -1,0 +1,24 @@
+.LoginForm{
+    display: center !important; 
+    width: 100%;
+    max-width: 40%;
+    margin: 2px;
+    padding-top: 20px;
+    justify-content: center !important;
+}
+
+.RegisterButton,
+.LoginButton {
+    display: inline-block !important;
+    width: 30%;
+    height: 2rem;
+    color: black;
+    border: 1px !important;
+    bottom: 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.inputform{
+    box-sizing: border-box !important;
+}

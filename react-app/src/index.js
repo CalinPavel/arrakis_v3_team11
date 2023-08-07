@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import * as bs from 'bootstrap/dist/css/bootstrap.css'
+import Login from './components/Login';
+import HomePage from './components/HomePage';
+import Navbar from './components/NavBar';
+import { Route, Routes } from 'react-router-dom';
+// import * as bst from 'bootstrap/dist/css/bootstrap-theme.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -15,3 +24,15 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// root.render(
+//   <React.StrictMode>
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<Login />}/>
+//         <Route path='/HomePage' element={<HomePage />}/>
+//         {/* <Route path="/Navbar" element={<Navbar />} /> */}
+//       </Routes>
+//     </BrowserRouter>  
+//   </React.StrictMode>
+// );

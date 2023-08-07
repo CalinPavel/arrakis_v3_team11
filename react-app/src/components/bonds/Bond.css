@@ -1,0 +1,28 @@
+.container{
+    max-width: 300px !important;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: 1rem !important ;
+}
+
+.card-img-top{
+    max-height: inherit;
+}
+
+.title{
+    font-weight: bolder;
+}
+
+.label{
+    font-weight: bold;
+}
+
+.text{
+    line-height: 1.25;
+}
+
+.date_picker {
+    margin: 1rem !important;
+    width: 200px !important;
+}
