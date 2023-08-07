@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class SecurityHandler implements ISecurityService {
@@ -135,6 +136,12 @@ public class SecurityHandler implements ISecurityService {
             e.printStackTrace();
             return null;
         }
+    }
+
+
+
+    public Object getBond() {
+        return securityRepository.findBond();
     }
 
 

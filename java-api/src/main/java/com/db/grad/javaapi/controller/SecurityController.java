@@ -18,15 +18,22 @@ public class SecurityController {
     @Autowired
     public SecurityController(SecurityHandler sh){securityService = sh;}
 
-    @GetMapping("/securities")
-    public List<Security> getAllSecurities() {
-        return securityService.getAllSecurities();
-    }
+    //@GetMapping("/securities")
+    //public List<Security> getAllSecurities() {
+        //return securityService.getAllSecurities();
+    //}
 
     @GetMapping("/securities/{issuerName}")
     public List<Security> getSecurityByIssuerName(@PathVariable(value = "issuerName") String issuerName){
         return securityService.getSecurityByIssuerName(issuerName);
     }
+
+    @GetMapping("/securities")
+    public Object getBond(){
+        return securityService.getBond();
+    }
+
+
 
     @GetMapping("/securities/{issuerName}/get5daysbods")
     public List<Security> getSecurityBy5DaysBods(@PathVariable(value = "issuerName") String issuerName){

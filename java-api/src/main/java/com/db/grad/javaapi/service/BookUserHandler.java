@@ -18,7 +18,7 @@ public class BookUserHandler implements IBookUserService{
     @Autowired
     public BookUserHandler(BookUserRepository bookUserRepository) {this.bookUserRepository= bookUserRepository;}
 
-    @Autowired
+    @Override
     public BookUser saveBookUser(BookUser bookUser) {return bookUserRepository.save(bookUser);}
 
     @Override
