@@ -1,20 +1,19 @@
 import React from 'react'
-import JsonData from './data.json'
 
-export const Trades = () => {
-    const DisplayData=JsonData.map(
+export const Trades = ({tradeData}) => {
+    const DisplayData=tradeData.map(
         (info)=>{
             return(
                 <tr>
-                    <td>{info.trade_type}</td>
-                    <td>{info.trade_currency}</td>
+                    <td>{info.tradeType}</td>
+                    <td>{info.tradeCurrency}</td>
                     <td>{info.quantity}</td>
-                    <td>{info.trade_settlement_date}</td>
-                    <td>{info.trade_status}</td>
+                    <td>{info.tradeSettlementDate}</td>
+                    <td>{info.tradeStatus}</td>
                     <td>{info.date}</td>
-                    <td>{info.security_id}</td>
-                    <td>{info.book_id}</td>
-                    <td>{info.counter_party_id}</td>
+                    <td>{info.securityId}</td>
+                    <td>{info.bookId}</td>
+                    <td>{info.counterPartyId}</td>
                 </tr>
             )
         }

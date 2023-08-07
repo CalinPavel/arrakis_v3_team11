@@ -5,12 +5,12 @@ import { Row } from "react-bootstrap";
 import Form from 'react-bootstrap/Form'
 import moment from 'moment'
 
-export const BondsFiveDayMaturity = () => {
+export const BondsFiveDayMaturity = ({userdetail}) => {
     const [bonds, setBonds] = useState([]);
 
     // TODO: uncomment when service is available
     // useEffect(() => {
-    //     getBondsFiveDayMaturity(date)
+    //     getBondsFiveDayMaturity(userdetail,date)
     //         .then(({ data }) => {
     //             setBonds(data);
     //         });

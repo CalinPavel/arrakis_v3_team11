@@ -3,8 +3,8 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import { AllBonds } from './bonds/AllBonds';
 import { BondsFiveDayMaturity } from './bonds/BondsFiveDayMaturity';
 import { UserBonds } from './bonds/UserBonds';
-import { Trades } from './trades/Trades';
 import Badge from 'react-bootstrap/Badge'
+import { TradesFiveDayExecuted } from './trades/TradesFiveDayExecuted';
 
 const HomePage = ({userdetail}) => {
 
@@ -12,7 +12,6 @@ const HomePage = ({userdetail}) => {
     const handleDropdownSelect = (param) => {
         setSelectedItem(param);
     };
-
 
     const [showKey, setShowKey] = useState(false);
     const handleShowKeyClick = () => {
@@ -34,17 +33,17 @@ const HomePage = ({userdetail}) => {
                     <Dropdown.Item onClick={() => handleDropdownSelect('All bonds')} >All bonds</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleDropdownSelect('Bonds +-5 business days maturity')}>Bonds +-5 business days maturity</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleDropdownSelect('My bonds')} >My bonds</Dropdown.Item>
-                    <Dropdown.Item onClick={() => handleDropdownSelect('All trades')} >All trades</Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleDropdownSelect('Trades')} >Trades</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
 
             <Badge onMouseEnter={handleShowKeyClick} onMouseLeave={handleCloseShowKey} className='text'> INFO </Badge>
             {showKey && <KeyInfo />}
 
-            {selectedItem === 'All bonds' && <AllBonds />}
-            {selectedItem == 'Bonds +-5 business days maturity' && <BondsFiveDayMaturity />}
-            {selectedItem == 'My bonds' && <UserBonds userdetail={userdetail}/>}
-            {selectedItem == 'All trades' && <Trades />}
+            {selectedItem === 'All bonds' && <AllBonds userdetail={userdetail}/>}
+            {selectedItem === 'Bonds +-5 business days maturity' && <BondsFiveDayMaturity userdetail={userdetail}/>}
+            {selectedItem === 'My bonds' && <UserBonds userdetail={userdetail}/>}
+            {selectedItem === 'Trades' && <TradesFiveDayExecuted userdetail={userdetail}/>}
         </>
     );
 };
