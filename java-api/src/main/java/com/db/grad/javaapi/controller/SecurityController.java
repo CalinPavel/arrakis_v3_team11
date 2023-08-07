@@ -1,5 +1,6 @@
 package com.db.grad.javaapi.controller;
 
+import com.db.grad.javaapi.dto.Bond;
 import com.db.grad.javaapi.model.Dog;
 import com.db.grad.javaapi.model.Security;
 import com.db.grad.javaapi.service.SecurityHandler;
@@ -18,21 +19,15 @@ public class SecurityController {
     @Autowired
     public SecurityController(SecurityHandler sh){securityService = sh;}
 
-    //@GetMapping("/securities")
-    //public List<Security> getAllSecurities() {
-        //return securityService.getAllSecurities();
-    //}
-
     @GetMapping("/securities/{issuerName}")
     public List<Security> getSecurityByIssuerName(@PathVariable(value = "issuerName") String issuerName){
         return securityService.getSecurityByIssuerName(issuerName);
     }
 
     @GetMapping("/securities")
-    public Object getBond(){
+    public List<Bond> getBond(){
         return securityService.getBond();
     }
-
 
 
     @GetMapping("/securities/{issuerName}/get5daysbods")
@@ -41,7 +36,7 @@ public class SecurityController {
     }
 
     @GetMapping("/securities/get5daysbods/{dateRequest}")
-    public List<Security> getSecurityBy5DaysBondsDate(@PathVariable(value = "dateRequest") String dateRequest){
+    public List<Bond> getSecurityBy5DaysBondsDate(@PathVariable(value = "dateRequest") String dateRequest){
         return securityService.getSecurityBy5DaysBondsDate(dateRequest);
     }
 
