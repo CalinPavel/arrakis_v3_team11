@@ -24,15 +24,6 @@ public class Security {
     @Column(length = 50, nullable = false)
     private String bondMaturityDate;
 
-    @Column(nullable = false)
-    private Double couponPercent;
-
-    @Column(nullable = false)
-    private Double unitPrice;
-
-    @Column(nullable = false)
-    private int faceValue;
-
     @Column(length = 100, nullable = false)
     private String issuerName;
 
@@ -60,18 +51,6 @@ public class Security {
 
     public String getBondMaturityDate() {
         return bondMaturityDate;
-    }
-
-    public Double getCouponPercent() {
-        return couponPercent;
-    }
-
-    public Double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public int getFaceValue() {
-        return faceValue;
     }
 
     public String getIssuerName() {
@@ -104,18 +83,6 @@ public class Security {
 
     public void setBondMaturityDate(String bondMaturityDate) {
         this.bondMaturityDate = bondMaturityDate;
-    }
-
-    public void setCouponPercent(Double couponPercent) {
-        this.couponPercent = couponPercent;
-    }
-
-    public void setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    public void setFaceValue(int faceValue) {
-        this.faceValue = faceValue;
     }
 
     public void setIssuerName(String issuerName) {

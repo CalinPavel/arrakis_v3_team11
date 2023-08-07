@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS book_user;
 DROP TABLE IF EXISTS trade;
 DROP TABLE IF EXISTS security;
 DROP TABLE IF EXISTS book;
@@ -11,13 +12,9 @@ CREATE TABLE security (
     isin VARCHAR(50) NOT NULL ,
     bond_currency VARCHAR(10) NOT NULL,
     bond_maturity_date VARCHAR(50) NOT NULL,
-    coupon_percent DOUBLE NOT NULL,
-    unit_price DOUBLE NOT NULL,
-    face_value INT NOT NULL,
     issuer_name varchar(100) NOT NULL,
     type varchar(50) NOT NULL,
     status varchar(50) NOT NULL
-
 );
 
 CREATE TABLE book (
@@ -32,8 +29,7 @@ CREATE TABLE counter_party (
 
 CREATE TABLE app_user (
     user_id int auto_increment PRIMARY KEY,
-    user_name VARCHAR (100) NOT NULL,
-    password VARCHAR (100) NOT NULL
+    user_email_address varchar (100) NOT NULL
 );
 
 CREATE TABLE trade (
@@ -41,9 +37,12 @@ CREATE TABLE trade (
     trade_type VARCHAR(10) NOT NULL,
     trade_currency VARCHAR(10) NOT NULL,
     quantity INT NOT NULL,
-    trade_settlement_date varchar(50) NOT NULL,
+    trade_settlement_date varchar(20) NOT NULL,
     trade_status VARCHAR(10) NOT NULL,
-    trade_date varchar(50) NOT NULL,
+    trade_date VARCHAR(50) NOT NULL,
+    coupon_percent DOUBLE NOT NULL,
+    unit_price DOUBLE NOT NULL,
+    face_value INT NOT NULL,
     cusip VARCHAR(50),
     isin VARCHAR(50) NOT NULL ,
     issuer_name VARCHAR(100),
@@ -55,6 +54,8 @@ CREATE TABLE trade (
     FOREIGN KEY (counter_party_id) REFERENCES counter_party (counter_party_id)
 );
 
-
-
-
+CREATE TABLE book_user (
+    book_id INT NOT NULL REFERENCES book(book_id),
+    user_id INT NOT NULL REFERENCES app_user(user_id),
+    PRIMARY KEY (book_id , user_id)
+);

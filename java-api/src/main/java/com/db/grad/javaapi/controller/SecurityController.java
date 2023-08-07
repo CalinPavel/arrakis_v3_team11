@@ -33,4 +33,9 @@ public class SecurityController {
         return securityService.getSecurityBy5DaysBods(issuerName);
     }
 
+    @GetMapping("/securities/get5daysbods/{dateRequest}")
+    public List<Security> getSecurityBy5DaysBondsDate(@PathVariable(value = "dateRequest") String dateRequest){
+        return securityService.getSecurityBy5DaysBondsDate(dateRequest);
+    }
+
 }

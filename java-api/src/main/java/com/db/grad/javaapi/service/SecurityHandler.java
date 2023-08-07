@@ -5,9 +5,12 @@ import com.db.grad.javaapi.repository.SecurityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -72,7 +75,7 @@ public class SecurityHandler implements ISecurityService {
             LocalDate date = LocalDate.parse(itr.getBondMaturityDate(), formatter);
 
             if (date.isAfter(fiveDaysBeforeCurrentDate) && date.isBefore(fiveDaysAfterCurrentDate)) {
-                System.out.println("Input date is within ±5 days from the current date.");
+
                 out.add(itr);
             }
 
@@ -84,5 +87,55 @@ public class SecurityHandler implements ISecurityService {
 
         return out;
     }
+
+    public List<Security> getSecurityBy5DaysBondsDate(String dateRequest){
+
+        List<Security> all = securityRepository.findAll();
+        List<Security> result = new ArrayList<Security>();
+
+        System.out.println(dateRequest); //YYYY-MM-DD
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate check = LocalDate.parse(dateRequest, formatter);
+
+        LocalDate fiveDaysBeforeCurrentDate = check.minusDays(5);
+        LocalDate fiveDaysAfterCurrentDate = check.plusDays(5);
+
+
+        for (Security itr : all) {
+            String convertedDate = convertToYYYYMMDD(itr.getBondMaturityDate());
+
+            if(convertedDate == null)
+                return null;
+
+            LocalDate checkFromArray = LocalDate.parse(convertedDate, formatter);
+
+            if (checkFromArray.isAfter(fiveDaysBeforeCurrentDate) && checkFromArray.isBefore(fiveDaysAfterCurrentDate)) {
+                System.out.println("Input date is within ±5 days from the desired date.");
+                result.add(itr);
+            }
+        }
+
+        if(result.isEmpty())
+            return null;
+
+        return result;
+    }
+
+
+    //method used for converting from dd/mm/YYYY to YYYY-MM-dd (it's easier for the url parser)
+    public static String convertToYYYYMMDD(String inputDate) {
+        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+            Date date = inputFormat.parse(inputDate);
+            return outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
 }

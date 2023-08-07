@@ -35,4 +35,20 @@ public class AppUserHandler implements IAppUserService {
         appUserRepository.deleteById(userId);
     }
 
+    public boolean checkIfEmailAlreadyExist(String currentUser){
+
+        List<AppUser> all = appUserRepository.findAll();
+
+        if(all.isEmpty())
+            return true;
+
+            for (AppUser user : all) {
+                if (user.getUser_email_address().equals(currentUser)) {
+                    return true;
+                }
+            }
+        return false;
+    }
+
+
 }
