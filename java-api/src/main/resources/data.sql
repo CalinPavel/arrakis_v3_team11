@@ -88,5 +88,33 @@ update trade set security_id=6 where cusip ='87973RAA8' and isin ='US87973RAA86'
 update trade set security_id=7 where cusip ='87973RAA8' and isin ='US87973RAA86' and issuer_name= 'First Norway Alpha Kl.IV';
 
 
-INSERT INTO app_user (user_email_address) VALUES ('jane_smith@gmail.com');
+INSERT INTO app_user (user_email_address) VALUES ('test1@gmail.com');
+INSERT INTO app_user (user_email_address) VALUES ('test2@gmail.com');
+INSERT INTO app_user (user_email_address) VALUES ('test3@gmail.com');
+INSERT INTO app_user (user_email_address) VALUES ('georgewang1211@gmail.com');
+INSERT INTO app_user (user_email_address) VALUES ('xyz_1@gmail.com');
+INSERT INTO app_user (user_email_address) VALUES ('abc@gmail.com');
+INSERT INTO app_user (user_email_address) VALUES ('test10@gmail.com');
+INSERT INTO app_user (user_email_address) VALUES ('ab123@gmail.com');
+INSERT INTO app_user (user_email_address) VALUES ('abcde@gmail.com');
+INSERT INTO app_user (user_email_address) VALUES ('abcxyz@gmail.com');
+
 INSERT INTO book_user (book_id, user_id) VALUES (1, 1);
+INSERT INTO book_user (book_id, user_id) VALUES (3, 1);
+INSERT INTO book_user (book_id, user_id) VALUES (4, 1);
+INSERT INTO book_user (book_id, user_id) VALUES (1, 2);
+INSERT INTO book_user (book_id, user_id) VALUES (2, 2);
+INSERT INTO book_user (book_id, user_id) VALUES (4, 3);
+INSERT INTO book_user (book_id, user_id) VALUES (5, 3);
+INSERT INTO book_user (book_id, user_id) VALUES (2, 3);
+INSERT INTO book_user (book_id, user_id) VALUES (1, 4);
+INSERT INTO book_user (book_id, user_id) VALUES (4, 5);
+INSERT INTO book_user (book_id, user_id) VALUES (3, 6);
+INSERT INTO book_user (book_id, user_id) VALUES (2, 6);
+INSERT INTO book_user (book_id, user_id) VALUES (5, 7);
+INSERT INTO book_user (book_id, user_id) VALUES (2, 7);
+INSERT INTO book_user (book_id, user_id) VALUES (1, 8);
+INSERT INTO book_user (book_id, user_id) VALUES (4, 9);
+INSERT INTO book_user (book_id, user_id) VALUES (1, 10);
+INSERT INTO book_user (book_id, user_id) VALUES (3, 10);
+INSERT INTO book_user (book_id, user_id) VALUES (5, 10);

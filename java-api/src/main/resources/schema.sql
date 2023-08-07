@@ -27,11 +27,6 @@ CREATE TABLE counter_party (
     bond_holder VARCHAR (100) NOT NULL
 );
 
-CREATE TABLE app_user (
-    user_id int auto_increment PRIMARY KEY,
-    user_email_address varchar (100) NOT NULL
-);
-
 CREATE TABLE trade (
     trade_id INT auto_increment PRIMARY KEY,
     trade_type VARCHAR(10) NOT NULL,
@@ -52,6 +47,11 @@ CREATE TABLE trade (
     FOREIGN KEY (book_id) REFERENCES book (book_id),
     counter_party_id INT,
     FOREIGN KEY (counter_party_id) REFERENCES counter_party (counter_party_id)
+);
+
+CREATE TABLE app_user (
+    user_id int auto_increment PRIMARY KEY,
+    user_email_address varchar (100) NOT NULL
 );
 
 CREATE TABLE book_user (
