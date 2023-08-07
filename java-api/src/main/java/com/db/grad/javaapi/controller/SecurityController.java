@@ -29,7 +29,7 @@ public class SecurityController {
     }
 
 
-    @GetMapping("/securities/{issuerName}/get5daysbods")
+    @GetMapping("/securities/{issuerName}/get5daysbonds")
     public List<Security> getSecurityBy5DaysBonds(@PathVariable(value = "issuerName") String issuerName){
         return securityService.getSecurityBy5DaysBonds(issuerName);
     }
