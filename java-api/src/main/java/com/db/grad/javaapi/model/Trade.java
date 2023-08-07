@@ -161,4 +161,28 @@ public class Trade {
     public CounterParty getCounterParty() {
         return counterParty;
     }
+
+    public Double getCouponPercent() {
+        return couponPercent;
+    }
+
+    public Double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public int getFaceValue() {
+        return faceValue;
+    }
+
+    public void setCouponPercent(Double couponPercent) {
+        this.couponPercent = couponPercent;
+    }
+
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public void setFaceValue(int faceValue) {
+        this.faceValue = faceValue;
+    }
 }
