@@ -6,7 +6,7 @@ import { UserBonds } from './bonds/UserBonds';
 import { Trades } from './trades/Trades';
 import Badge from 'react-bootstrap/Badge'
 
-const HomePage = (userdetail) => {
+const HomePage = ({userdetail}) => {
 
     const [selectedItem, setSelectedItem] = useState('All bonds');
     const handleDropdownSelect = (param) => {
@@ -43,7 +43,7 @@ const HomePage = (userdetail) => {
 
             {selectedItem === 'All bonds' && <AllBonds />}
             {selectedItem == 'Bonds +-5 business days maturity' && <BondsFiveDayMaturity />}
-            {selectedItem == 'My bonds' && <UserBonds />}
+            {selectedItem == 'My bonds' && <UserBonds userdetail={userdetail}/>}
             {selectedItem == 'All trades' && <Trades />}
         </>
     );

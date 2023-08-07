@@ -1,20 +1,22 @@
 import { hostNameUrl } from "../config/api";
 import axios from "axios";
 
-export const getAllBonds = () => {
+export const getAllBonds = (userdetail) => {
   const bonds = axios.get(`${hostNameUrl}/securities`);
   console.log(bonds);
   return bonds;
 };
 
 export const getBondsFiveDayMaturity = (date) => {
+  // TODO: uncomment when API is working
   // const bonds = axios.get(`${hostNameUrl}/bonds/date/{date}`);
   // return bonds;
   return null;
 }
 
-export const getUserBonds = (userName) => {
-  // const bonds = axios.get(`${hostNameUrl}/bonds/user/{userName}`);
+export const getUserBonds = (userdetail) => {
+  // TODO: uncomment when API is working
+  // const bonds = axios.get(`${hostNameUrl}/bonds/user/{userdetail}`);
   // return bonds;
   return null;
 }

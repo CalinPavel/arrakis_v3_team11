@@ -9,19 +9,14 @@ import { Route, Routes } from "react-router-dom";
 
 
 const App = () => {
-  // return <Bond bondData={bondDataExample}/>;
   const [userdetail, setUserdetail] = useState({});
   
   return (
     <>
-    <div>
-      {/* <Navbar />
-      <HomePage /> */}
-      {/* <Login /> */}
-    </div>
+    <Navbar userdetail={userdetail}/>
 
     <Routes>
-        <Route path="/" element={<Login setUserdetail = {setUserdetail} />}/>
+        <Route path="/" element={<Login setUserdetail = {setUserdetail}/>}/>
         <Route path='/HomePage' element={<HomePage userdetail = {userdetail}/>}/>
     </Routes>
 

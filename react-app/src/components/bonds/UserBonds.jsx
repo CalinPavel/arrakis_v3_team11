@@ -4,12 +4,12 @@ import { getUserBonds } from "../../services/BondService";
 import { Row } from "react-bootstrap";
 
 
-export const UserBonds = (user) => {
+export const UserBonds = (userdetail) => {
     const [bonds, setBonds] = useState([]);
 
     // TODO: uncomment when service is available
     // useEffect(() => {
-    //     getUserBonds(user)
+    //     getUserBonds(userdetail)
     //         .then(({ data }) => {
     //             setBonds(data);
     //         });

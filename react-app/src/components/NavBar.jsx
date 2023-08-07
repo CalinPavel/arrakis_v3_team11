@@ -2,7 +2,8 @@
 import './Navbar.css'
 import React, { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({userdetail}) => {
+
     return (
         <nav className="navbar">
 
@@ -10,7 +11,7 @@ const Navbar = () => {
                 Bonds & Trades                
             </a>
             <div className="ml-auto">
-                <span className="navbar-text">Hello, John Doe</span>
+                <span className="navbar-text">{userdetail.email}</span>
             </div>
         </nav>);
 };

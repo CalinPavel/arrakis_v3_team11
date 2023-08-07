@@ -41,8 +41,8 @@ const Login = ({setUserdetail}) => {
         setLogin(true);
         if (user){user.getIdToken().then((result) => {
             setUserdetail({
-                "user_email": user.email,
-                "firebase_token": result
+                "token": result,
+                "email": user.email
             })
         })}
         // console.log("User Token: ", user.getIdToken())
