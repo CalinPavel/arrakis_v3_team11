@@ -21,14 +21,15 @@ export const getBondsFiveDayMaturity = (userdetail, date) => {
 }
 
 export const getUserBonds = (userdetail) => {
-  // TODO: uncomment when API is working
-  // const bonds = axios.get(`${hostNameUrl}/bonds/user`, {
-  //   headers: {
-  //     'Authorization': `Basic ${userdetail.token}:${userdetail.email}`
-  //   }
-  // });
-  // return bonds;
-  return null;
+
+  console.log(userdetail.email)
+
+  const bonds = axios.get(`${hostNameUrl}/books/mybooks`, {
+    headers: {
+      'Authorization': `Basic ${userdetail.token}:${userdetail.email}`
+    }
+  });
+  return bonds;
 }
 
 

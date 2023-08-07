@@ -6,7 +6,7 @@ import moment from 'moment'
 
 // Display trades which were executed within a 5 day window of a selected day
 
-export const TradesFiveDayExecuted = () => {
+export const TradesFiveDayExecuted = ( {userdetail} ) => {
     const [trades, setTrades] = useState([]);
 
     // useEffect(() => {

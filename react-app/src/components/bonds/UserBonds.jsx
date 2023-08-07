@@ -4,26 +4,25 @@ import { getUserBonds } from "../../services/BondService";
 import { Row } from "react-bootstrap";
 
 
-export const UserBonds = (userdetail) => {
+export const UserBonds = ({ userdetail }) => {
     const [bonds, setBonds] = useState([]);
 
-    // TODO: uncomment when service is available
-    // useEffect(() => {
-    //     getUserBonds(userdetail)
-    //         .then(({ data }) => {
-    //             setBonds(data);
-    //         });
-    // }, []);
+    useEffect(() => {
+        getUserBonds(userdetail)
+            .then(({ data }) => {
+                setBonds(data);
+            });
+    }, []);
 
     // Temporary data
-    const temp_data = [bondDataExample];
-    useEffect(() => { setBonds(temp_data); }, []);
+    // const temp_data = [bondDataExample];
+    // useEffect(() => { setBonds(temp_data); }, []);
 
 
     return (
         <>
             <Row>
-                {bonds.map(bond =>
+                {bonds.length === 0 ? <p>No bonds</p> : bonds.map(bond =>
                     <Bond bondData={bond} />)
                 }
             </Row>
