@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card'
 import './Bond.css'
 
 export const Bond = ({bondData}) => {
-    console.log(bondData)
     return (
         <Card className='container'>
             <Card.Body>

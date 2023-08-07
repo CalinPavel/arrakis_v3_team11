@@ -7,17 +7,17 @@ export const getAllBonds = (userdetail) => {
       'Authorization': `Basic ${userdetail.token}:${userdetail.email}`
     }
   });
-
-  console.log(bonds);
   return bonds;
-  // return null;
 };
 
 export const getBondsFiveDayMaturity = (userdetail, date) => {
-  // TODO: uncomment when API is working
-  // const bonds = axios.get(`${hostNameUrl}/bonds/date/{date}`);
-  // return bonds;
-  return null;
+  const bonds = axios.get(`${hostNameUrl}/securities/get5daysbonds/${date}`, {
+    headers: {
+      'Authorization': `Basic ${userdetail.token}:${userdetail.email}`
+    }
+  });
+  // Returns empty array if no matching bonds
+  return bonds;
 }
 
 export const getUserBonds = (userdetail) => {
