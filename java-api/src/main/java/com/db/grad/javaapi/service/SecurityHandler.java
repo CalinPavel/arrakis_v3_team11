@@ -105,7 +105,7 @@ public class SecurityHandler implements ISecurityService {
     public List<Bond> getSecurityBy5DaysBondsDate(String dateRequest){
 
         List<Bond> all = getBond();
-        List<Bond> result = new ArrayList<Bond>();
+        List<Bond> result = new ArrayList<>();
 
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
