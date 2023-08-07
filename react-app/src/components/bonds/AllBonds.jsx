@@ -7,16 +7,16 @@ import { Row } from "react-bootstrap";
 export const AllBonds = ({userdetail}) => {
     const [bonds, setBonds] = useState([]);
 
-    // useEffect(() => {
-    //     getAllBonds(userdetail)
-    //         .then(({ data }) => {
-    //             setBonds(data);
-    //         });
-    // }, []);
+    useEffect(() => {
+        getAllBonds(userdetail)
+            .then(({ data }) => {
+                setBonds(data);
+            });
+    }, []);
 
     // Temporary data
-    const temp_data = [bondDataExample, bondDataExample];
-    useEffect(() => { setBonds(temp_data); }, []);
+    // const temp_data = [bondDataExample, bondDataExample];
+    // useEffect(() => { setBonds(temp_data); }, []);
 
     return (
         <>

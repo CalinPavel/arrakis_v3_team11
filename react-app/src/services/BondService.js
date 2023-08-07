@@ -2,16 +2,15 @@ import { hostNameUrl } from "../config/api";
 import axios from "axios";
 
 export const getAllBonds = (userdetail) => {
+  const bonds = axios.get(`${hostNameUrl}/securities`, {
+    headers: {
+      'Authorization': `Basic ${userdetail.token}:${userdetail.email}`
+    }
+  });
 
-  // const bonds = axios.get(`${hostNameUrl}/securities`, {
-  //   headers: {
-  //     'Authorization': `Basic ${userdetail.token}:${userdetail.email}`
-  //   }
-  // });
-
-  // console.log(bonds);
-  // return bonds;
-  return null;
+  console.log(bonds);
+  return bonds;
+  // return null;
 };
 
 export const getBondsFiveDayMaturity = (userdetail, date) => {
