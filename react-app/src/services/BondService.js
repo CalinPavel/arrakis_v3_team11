@@ -24,9 +24,6 @@ export const getBondsFiveDayMaturity = (userdetail, date) => {
 const Buffer = require('buffer').Buffer;
 
 export const getUserBonds = (userdetail) => {
-
-  console.log(userdetail.email)
-
   const authHeader = {
     'Authorization': `Basic ${Buffer.from(`${userdetail.email}:${userdetail.token}:`).toString('base64')}`
   };

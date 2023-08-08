@@ -14,7 +14,7 @@ export const TradesFiveDayExecuted = ( {userdetail} ) => {
     let today = new Date();
     today = moment(today).format('YYYY-MM-DD');
 
-    const [date, setDate] = useState({ today });
+    const [date, setDate] = useState(today);
 
     const handleDate = (e) => {
         e.preventDefault();
