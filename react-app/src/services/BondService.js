@@ -20,15 +20,19 @@ export const getBondsFiveDayMaturity = (userdetail, date) => {
   return bonds;
 }
 
+
+const Buffer = require('buffer').Buffer;
+
 export const getUserBonds = (userdetail) => {
 
   console.log(userdetail.email)
 
-  const bonds = axios.get(`${hostNameUrl}/books/mybooks`, {
-    headers: {
-      'Authorization': `Basic ${userdetail.token}:${userdetail.email}`
-    }
-  });
+  const authHeader = {
+    'Authorization': `Basic ${Buffer.from(`${userdetail.email}:${userdetail.token}:`).toString('base64')}`
+  };
+
+  const bonds = axios.get(`${hostNameUrl}/books/mybooks`, { headers: authHeader });
+    
   return bonds;
 }
 
