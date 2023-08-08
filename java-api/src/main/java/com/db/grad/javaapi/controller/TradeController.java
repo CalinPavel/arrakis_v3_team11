@@ -1,14 +1,12 @@
 package com.db.grad.javaapi.controller;
 
+import com.db.grad.javaapi.dto.Bond;
 import com.db.grad.javaapi.model.CounterParty;
 import com.db.grad.javaapi.model.Trade;
 import com.db.grad.javaapi.service.CounterPartyHandler;
 import com.db.grad.javaapi.service.TradeHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +25,12 @@ public class TradeController {
     @GetMapping("/trades")
     public List<Trade> getAllTrades(){
         return tradeService.getAllTrades();
+    }
+
+
+    @GetMapping("/trades/{dateRequest}")
+    public List<Trade> getSecurityBy5DaysBondsDate(@PathVariable(value = "dateRequest") String dateRequest){
+        return tradeService.getTradesByDate(dateRequest);
     }
 }
 
