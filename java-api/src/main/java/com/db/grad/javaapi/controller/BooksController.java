@@ -40,11 +40,12 @@ public class BooksController {
             String password = usernamePassword[1];
 
             System.out.println("Email + token");
+            System.out.println(email);
+            System.out.println(password);
 
             return bookService.getMyBooks(email);
         }
         return null;
-
     }
 
 }
