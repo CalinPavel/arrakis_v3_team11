@@ -9,21 +9,8 @@ import moment from 'moment'
 export const TradesFiveDayExecuted = ( {userdetail} ) => {
     const [trades, setTrades] = useState([]);
 
-    // useEffect(() => {
-    //     getTradesFiveDayExecuted()
-    //         .then(({ data }) => {
-    //             setTrades(data);
-    //         });
-    // }, []);
-
-    // Temporary data
-    const temp_data = [tradeDataExample];
-    useEffect(() => { setTrades(temp_data); }, []);
-
-
     // Dealing with dates
     // Dates in format yyyy-mm-dd
-
     let today = new Date();
     today = moment(today).format('YYYY-MM-DD');
 
@@ -35,11 +22,22 @@ export const TradesFiveDayExecuted = ( {userdetail} ) => {
         console.log(e.target.value);
     }
 
+    useEffect(() => {
+        getTradesFiveDayExecuted(userdetail, date)
+            .then(({ data }) => {
+                setTrades(data);
+            });
+    }, []);
+
+    // Temporary data
+    // const temp_data = [tradeDataExample];
+    // useEffect(() => { setTrades(temp_data); }, []);
+
     return (
         <>
             <p>Trades which were executed within a 5 day window of a selected day</p>
             <Form.Control type='date' className='date_picker' onChange={handleDate} defaultValue={today} />
-            <Trades tradeData={trades} />
+            {trades.length === 0 ? <p>No trades</p> : <Trades tradeData={trades} />}
         </>
     )
 };
