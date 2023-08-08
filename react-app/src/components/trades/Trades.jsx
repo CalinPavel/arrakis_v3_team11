@@ -10,8 +10,8 @@ export const Trades = ({tradeData}) => {
                     <td>{info.quantity}</td>
                     <td>{info.tradeSettlementDate}</td>
                     <td>{info.tradeStatus}</td>
-                    <td>{info.date}</td>
-                    <td>{info.securityId}</td>
+                    <td>{info.tradeDate}</td>
+                    <td>{info.isin}</td>
                     <td>{info.bookId}</td>
                     <td>{info.counterPartyId}</td>
                 </tr>
@@ -29,8 +29,8 @@ export const Trades = ({tradeData}) => {
                     <th>Quantity</th>
                     <th>Trade Settlement Date</th>
                     <th>Trade Status</th>
-                    <th>Date</th>
-                    <th>Security ID</th>
+                    <th>Trade Date</th>
+                    <th>ISIN</th>
                     <th>Book ID</th>
                     <th>Counter Party ID</th>
                     </tr>

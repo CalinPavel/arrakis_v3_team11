@@ -27,7 +27,7 @@ export const TradesFiveDayExecuted = ( {userdetail} ) => {
             .then(({ data }) => {
                 setTrades(data);
             });
-    }, []);
+    }, [date]);
 
     // Temporary data
     // const temp_data = [tradeDataExample];
